@@ -1,0 +1,18 @@
+<nav mat-tab-nav-bar [tabPanel]="tabPanel" color="accent">
+    <a mat-tab-link routerLink="home" routerLinkActive [routerLinkActiveOptions]="{exact:true }" #rla="routerLinkActive" [active]="rla.isActive">
+        home
+    </a>
+    <a mat-tab-link routerLink="lista" routerLinkActive [routerLinkActiveOptions]="{exact:true }" #rlb="routerLinkActive" [active]="rlb.isActive">
+        lista
+    </a>
+    <a mat-tab-link routerLink="aggiunta" routerLinkActive [routerLinkActiveOptions]="{exact:true }" #rlc="routerLinkActive" [active]="rlc.isActive">
+        aggiunta
+    </a>
+</nav>
+
+<mat-tab-nav-panel #tabPanel>
+    <!-- segnaposto dove verranno caricate le componenti -->
+    <router-outlet></router-outlet>
+</mat-tab-nav-panel>
+
+

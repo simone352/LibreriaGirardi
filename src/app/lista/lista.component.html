@@ -1,0 +1,33 @@
+<div style="margin: 20px;">
+    <h1>Lista di tutti i libri presenti</h1>
+</div>
+<div *ngIf="visibile==false">
+    <div *ngFor="let libro of libri$ | async" style="margin-left: 20px;">
+        <mat-list>
+            <mat-list-item>{{libro.id}} | {{libro.titolo}} | {{libro.autore}} | {{libro.tipo}}
+            <button mat-icon-button (click)="visalFormLibro()" (click)="customLibro()"><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button (click)="delete(libro.id)"><mat-icon>delete</mat-icon></button>
+        </mat-list-item>
+        </mat-list>
+    </div>
+</div>
+<div *ngIf="visibile == true" style="margin-left: 100px; margin-top: 20px;">
+    <form class="example-form" [formGroup]="formCustum" (ngSubmit)="customLibro()">
+        <mat-form-field class="example-full-width">
+            <mat-label>Titolo</mat-label>
+            <input matInput formControlName="titolo">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Autore</mat-label>
+            <input matInput formControlName="autore">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Tipo</mat-label>
+            <mat-select formControlName="tipo">
+                <mat-option value="manuale">Manuale</mat-option>
+                <mat-option value="guida">Guida</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-button type="submit">conferma</button>
+    </form>
+</div>
