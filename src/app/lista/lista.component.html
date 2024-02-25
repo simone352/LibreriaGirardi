@@ -5,7 +5,7 @@
     <div *ngFor="let libro of libri$ | async" style="margin-left: 20px;">
         <mat-list>
             <mat-list-item>{{libro.id}} | {{libro.titolo}} | {{libro.autore}} | {{libro.tipo}}
-            <button mat-icon-button (click)="visalFormLibro()" (click)="customLibro()"><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button (click)="caricaLibro(libro)"><mat-icon>edit</mat-icon></button>
             <button mat-icon-button (click)="delete(libro.id)"><mat-icon>delete</mat-icon></button>
         </mat-list-item>
         </mat-list>

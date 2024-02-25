@@ -48,6 +48,14 @@ export class ListaComponent implements OnInit{
     this.visibile =! this.visibile;
   }
 
+  caricaLibro(libro : Libro){
+    this.formCustum.get("id").setValue(libro.id)
+    this.formCustum.get("titolo").setValue(libro.titolo)
+    this.formCustum.get("autore").setValue(libro.autore)
+    this.formCustum.get("tipo").setValue(libro.tipo)
+    this.visalFormLibro()
+  }
+
   delete(id: number) {
     this.datiservice.deleteLibro(id).subscribe(
       () => {
